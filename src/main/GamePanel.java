@@ -2,28 +2,51 @@ package main;
 
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
-import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Random;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
-    private MouseInputs mouseInputs;
-    private float x = 100, y = 100, xDir = 1, yDir = 1;
-    private Color color = new Color(255, 255, 255);
-    private Random random;
+    private final MouseInputs mouseInputs;
+    private float x = 100, y = 100;
+    private BufferedImage img, subImage;
 
     public GamePanel() {
-        random = new Random();
         mouseInputs = new MouseInputs(this);
+        setPanelSize();
+
+        importImage();
+
         addKeyListener(new KeyboardInputs(this));
         addMouseMotionListener(mouseInputs);
         addMouseListener(mouseInputs);
     }
 
+    private void importImage() {
+        InputStream is = getClass().getResourceAsStream("/res/player_sprites.png");
+
+        try {
+            img = ImageIO.read(is);
+        } catch (IOException e) {
+            // e.printStackTrace();
+        }
+
+    }
+
+    private void setPanelSize() {
+        Dimension size = new Dimension(1280, 800);
+        setPreferredSize(size);
+        setMinimumSize(size);
+        setMaximumSize(size);
+    }
+
     public void setRectPos(int x, int y) {
         this.x = x;
-        this.y = y;    
+        this.y = y;
     }
 
     public void changeX(int xDelta) {
@@ -37,25 +60,9 @@ public class GamePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        updateRectangle();
-        g.setColor(color);
-        g.fillRect((int)x, (int)y, 200, 50);
-    }
 
-    private void updateRectangle() {
-        x += xDir;
-        if (x > 800 || x < 0) {
-            xDir *= -1;
-            color = getRndColor();
-        }
-        y += yDir;
-        if (y > 600 || y < 0) {
-            yDir *= -1;
-            color = getRndColor();
-        }
-    }
+        subImage = img.getSubimage(1*64, 1*40, 64, 40);
 
-    private Color getRndColor() {
-        return new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        g.drawImage(subImage, (int) x, (int) y, 128, 80, null);
     }
 }
