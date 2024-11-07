@@ -17,7 +17,7 @@ public class GamePanel extends JPanel {
     private float x = 100, y = 100;
     private BufferedImage img;
     private BufferedImage[][] animations;
-    private int animationTick, animationIndex, animationSpeed = 6;
+    private int animationTick, animationIndex, animationSpeed = 15;
     private int playerAction = IDLE;
     private int playerDirection = -1;
     private boolean moving = false;
@@ -117,13 +117,16 @@ public class GamePanel extends JPanel {
         }
     }
 
+    public void updateGame() {
+        updateAnimationTick();
+        setAnimation();
+        updatePosition();
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        updateAnimationTick();
-        setAnimation();
-        updatePosition();
 
         g.drawImage(animations[playerAction][animationIndex], (int) x, (int) y, 128, 80, null);
     }
