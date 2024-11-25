@@ -1,7 +1,9 @@
 package main;
 
 public class MainClass {
-    public static void main(String[] args) throws Exception {
-        new Game();
-    }
+
+	public static void main(String[] args) {
+		new Game();
+	}
+
 }
