@@ -24,8 +24,10 @@ public class LoadSave {
 	public static final String BIG_CLOUDS = "big_clouds.png";
 	public static final String SMALL_CLOUDS = "small_clouds.png";
 	public static final String CRABBY_SPRITE = "crabby_sprite.png";
-	public static final String STATUS_BAR = "health_power_bar.png";
+	public static final String STATUS_BAR = "health_bar.png";
 	public static final String COMPLETED_IMG = "completed_sprite.png";
+	public static final String OPTIONS_MENU = "options_background.png";
+	public static final String FPS_BUTTONS = "fps.png";
 
 	public static BufferedImage GetSpriteAtlas(String fileName) {
 		BufferedImage img = null;

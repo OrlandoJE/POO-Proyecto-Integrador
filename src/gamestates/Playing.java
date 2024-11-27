@@ -167,18 +167,21 @@ public class Playing extends State implements Statemethods {
 			gameOverOverlay.keyPressed(e);
 		else
 			switch (e.getKeyCode()) {
-			case KeyEvent.VK_A:
-				player.setLeft(true);
-				break;
-			case KeyEvent.VK_D:
-				player.setRight(true);
-				break;
-			case KeyEvent.VK_SPACE:
-				player.setJump(true);
-				break;
-			case KeyEvent.VK_ESCAPE:
-				paused = !paused;
-				break;
+				case KeyEvent.VK_A:
+					player.setLeft(true);
+					break;
+				case KeyEvent.VK_D:
+					player.setRight(true);
+					break;
+				case KeyEvent.VK_SPACE:
+					player.setJump(true);
+					break;
+				case KeyEvent.VK_ESCAPE:
+					paused = !paused;
+					break;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_F) {
+				player.setAttacking(true);
 			}
 	}
 
@@ -197,12 +200,6 @@ public class Playing extends State implements Statemethods {
 				break;
 			}
 
-	}
-
-	public void mouseDragged(MouseEvent e) {
-		if (!gameOver)
-			if (paused)
-				pauseOverlay.mouseDragged(e);
 	}
 
 	@Override

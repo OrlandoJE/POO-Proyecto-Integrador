@@ -31,7 +31,7 @@ public class Player extends Entity {
 	private BufferedImage statusBarImg;
 
 	private int statusBarWidth = (int) (192 * Game.SCALE);
-	private int statusBarHeight = (int) (58 * Game.SCALE);
+	private int statusBarHeight = (int) (34 * Game.SCALE);
 	private int statusBarX = (int) (10 * Game.SCALE);
 	private int statusBarY = (int) (10 * Game.SCALE);
 

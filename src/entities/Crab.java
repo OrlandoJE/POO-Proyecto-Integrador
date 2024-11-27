@@ -2,8 +2,8 @@ package entities;
 
 import static utilz.Constants.EnemyConstants.*;
 
-import java.awt.Color;
-import java.awt.Graphics;
+// import java.awt.Color;
+// import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
 
 import static utilz.Constants.Directions.*;
