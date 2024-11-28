@@ -4,9 +4,11 @@
 
 This project has support for two kinds of games: platform with enemies and platform parkour.
 
-## Button positions
+## Buttons
 
-All buttons are under the `ui` folder.
+All buttons (and graphical interfaces) are under the `ui` folder. Each button has its position and size.
+
+For each type of button, there is a class which can be changed to add or modify the button's behavior.
 
 ## Custom assets
 
@@ -25,6 +27,8 @@ To add custom levels, you can create a new text file in the levels folder. The f
 
 ## Recomendations
 
-- 
+- Check the `res` folder to see the assets and levels that are already in the game. If wished (and recommended) they can be modify and it is advised to follow the same pattern as the assets in the `res` folder.
+- If not followed, modify the `GetLevelData` in the `HelpMethods` class to adjust to the new assets.
+- For the levels, it is recommended to use the same height as the ones in the `res` folder, width can vary.
 
 > This is a modified version of the _Java Game Development Tutorial Platformer_ by **Kaarin Gaming**. This is for educational porpuses and non-commercial.

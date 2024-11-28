@@ -148,14 +148,4 @@ public class HelpMethods {
 			}
 		return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
 	}
-
-	// public static boolean arrivedToFinish(Rectangle2D.Float hitbox, int[][] lvlData) {
-	// 	int currentTileX = (int) (hitbox.x / Game.TILES_SIZE);
-	// 	int currentTileY = (int) (hitbox.y / Game.TILES_SIZE);
-
-	// 	Color color = new Color(lvlData[currentTileY][currentTileX]);
-	// 	int blueValue = color.getBlue();
-
-	// 	return blueValue == 200;
-	// }
 }
