@@ -23,4 +23,8 @@ To add custom levels, you can create a new text file in the levels folder. The f
 - The enemy's initial position will be taken from the green value of the rgb color of the pixel, it must be 0.
 - For parkour mode, winning position will be taken from the blue value of the rgb color of the pixel, it must be 200.
 
+## Recomendations
+
+- 
+
 > This is a modified version of the _Java Game Development Tutorial Platformer_ by **Kaarin Gaming**. This is for educational porpuses and non-commercial.

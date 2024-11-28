@@ -55,7 +55,7 @@ public class Player extends Entity {
 		this.state = IDLE;
 		this.maxHealth = 100;
 		this.currentHealth = maxHealth;
-		this.walkSpeed = Game.SCALE * 1.0f;
+		this.walkSpeed = Game.SCALE * (float) MainClass.playerWalkSpeed;
 		loadAnimations();
 		initHitbox(20, 27);
 		initAttackBox();
@@ -124,7 +124,7 @@ public class Player extends Entity {
 
 	private void updateAnimationTick() {
 		aniTick++;
-		if (aniTick >= ANI_SPEED) {
+		if (aniTick >= ANIMATION_SPEED) {
 			aniTick = 0;
 			animationIndex++;
 			if (animationIndex >= GetSpriteAmount(state)) {

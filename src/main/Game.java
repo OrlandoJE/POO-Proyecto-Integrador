@@ -2,11 +2,11 @@ package main;
 
 import java.awt.Graphics;
 
-import gamestates.GameOptions;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
 // import utilz.LoadSave;
+import ui.GameOptions;
 
 public class Game implements Runnable {
 

@@ -1,14 +1,14 @@
-package gamestates;
+package ui;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
+import gamestates.Gamestate;
+import gamestates.State;
+import gamestates.Statemethods;
 import main.Game;
-import ui.FpsButton;
-import ui.PauseButton;
-import ui.UrmButton;
 import utilz.LoadSave;
 import static utilz.Constants.UI.URMButtons.*;
 
@@ -28,11 +28,13 @@ public class GameOptions extends State implements Statemethods {
 
 	private void loadButton() {
 		int menuX = (int) (387 * Game.SCALE);
-		int menuY = (int) (325 * Game.SCALE);
+		int menuY = (int) (340 * Game.SCALE);
 
-		menuB = new UrmButton(menuX, menuY + 25, URM_SIZE, URM_SIZE, 2);
-		fps60Button = new FpsButton(menuX - 100, menuY - 85, URM_SIZE, URM_SIZE, 0);
-		fps144Button = new FpsButton(menuX + 100, menuY - 85, URM_SIZE, URM_SIZE, 1);
+		menuB = new UrmButton(menuX, menuY, URM_SIZE, URM_SIZE, 2);
+		fps60Button = new FpsButton(menuX - 60 * (int) Game.SCALE, menuY - 50
+				* (int) Game.SCALE, URM_SIZE, URM_SIZE, 0);
+		fps144Button = new FpsButton(menuX + 60 * (int) Game.SCALE, menuY - 50
+				* (int) Game.SCALE, URM_SIZE, URM_SIZE, 1);
 	}
 
 	private void loadImgs() {

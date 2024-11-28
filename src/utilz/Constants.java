@@ -5,8 +5,8 @@ import main.MainClass;
 
 public class Constants {
 
-	public static final float GRAVITY = 0.04f * Game.SCALE;
-	public static final int ANI_SPEED = 25;
+	public static final float GRAVITY = (float) MainClass.gravity * Game.SCALE;
+	public static final int ANIMATION_SPEED = 25;
 
 	public static class EnemyConstants {
 		public static final int CRABBY = 0;
@@ -29,19 +29,19 @@ public class Constants {
 		public static int GetSpriteAmount(int enemy_type, int enemy_state) {
 
 			switch (enemy_type) {
-			case CRABBY:
-				switch (enemy_state) {
-				case IDLE:
-					return 9;
-				case RUNNING:
-					return 6;
-				case ATTACK:
-					return 7;
-				case HIT:
-					return 4;
-				case DEAD:
-					return 5;
-				}
+				case CRABBY:
+					switch (enemy_state) {
+						case IDLE:
+							return 9;
+						case RUNNING:
+							return 6;
+						case ATTACK:
+							return 7;
+						case HIT:
+							return 4;
+						case DEAD:
+							return 5;
+					}
 			}
 
 			return 0;
@@ -50,19 +50,19 @@ public class Constants {
 
 		public static int GetMaxHealth(int enemy_type) {
 			switch (enemy_type) {
-			case CRABBY:
-				return 100;
-			default:
-				return 1;
+				case CRABBY:
+					return 100;
+				default:
+					return 1;
 			}
 		}
 
 		public static int GetEnemyDmg(int enemy_type) {
 			switch (enemy_type) {
-			case CRABBY:
-				return MainClass.enemyDamage;
-			default:
-				return 0;
+				case CRABBY:
+					return MainClass.enemyDamage;
+				default:
+					return 0;
 			}
 
 		}
@@ -99,16 +99,6 @@ public class Constants {
 			public static final int URM_SIZE = (int) (URM_DEFAULT_SIZE * Game.SCALE);
 
 		}
-
-		public static class VolumeButtons {
-			public static final int VOLUME_DEFAULT_WIDTH = 28;
-			public static final int VOLUME_DEFAULT_HEIGHT = 44;
-			public static final int SLIDER_DEFAULT_WIDTH = 215;
-
-			public static final int VOLUME_WIDTH = (int) (VOLUME_DEFAULT_WIDTH * Game.SCALE);
-			public static final int VOLUME_HEIGHT = (int) (VOLUME_DEFAULT_HEIGHT * Game.SCALE);
-			public static final int SLIDER_WIDTH = (int) (SLIDER_DEFAULT_WIDTH * Game.SCALE);
-		}
 	}
 
 	public static class Directions {
@@ -129,20 +119,20 @@ public class Constants {
 
 		public static int GetSpriteAmount(int player_action) {
 			switch (player_action) {
-			case DEAD:
-				return 8;
-			case RUNNING:
-				return 6;
-			case IDLE:
-				return 5;
-			case HIT:
-				return 4;
-			case JUMP:
-			case ATTACK:
-				return 3;
-			case FALLING:
-			default:
-				return 1;
+				case DEAD:
+					return 8;
+				case RUNNING:
+					return 6;
+				case IDLE:
+					return 5;
+				case HIT:
+					return 4;
+				case JUMP:
+				case ATTACK:
+					return 3;
+				case FALLING:
+				default:
+					return 1;
 			}
 		}
 	}
