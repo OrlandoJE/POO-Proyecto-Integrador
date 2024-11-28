@@ -10,7 +10,6 @@ import gamestates.Playing;
 
 public class Game implements Runnable {
 
-	private GameWindow gameWindow;
 	private GamePanel gamePanel;
 	private Thread gameThread;
 	private int fps = MainClass.framesPerSecond;
@@ -34,7 +33,7 @@ public class Game implements Runnable {
 		initClasses();
 
 		gamePanel = new GamePanel(this);
-		gameWindow = new GameWindow(gamePanel);
+		new GameWindow(gamePanel);
 		gamePanel.setFocusable(true);
 		gamePanel.requestFocus();
 

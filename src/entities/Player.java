@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import gamestates.Playing;
 import main.Game;
 import main.MainClass;
+import utilz.HelpMethods;
 import utilz.LoadSave;
 
 public class Player extends Entity {
@@ -170,6 +171,12 @@ public class Player extends Entity {
 
 	private void updatePos() {
 		moving = false;
+
+		if (!MainClass.areThereEnemies) {
+			if (HelpMethods.didWin(hitbox.x, hitbox.y, lvlData)) {
+				playing.setLevelCompleted(true);
+			}
+		}
 
 		if (jump)
 			jump();

@@ -11,6 +11,7 @@ public class MainClass {
 	public static int playerAttackDamage = 50; // How much damage the player does? Normally 10
 
 	// Enemy related variables. Health is always 100
+	public static boolean areThereEnemies = false; // Are there enemies in the game? If not, it'll be considered parkour
 	public static int enemyDamage = 10; // How much damage the enemy does? Normally 10
 
 	public static void main(String[] args) {

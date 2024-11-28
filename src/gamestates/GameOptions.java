@@ -120,7 +120,6 @@ public class GameOptions extends State implements Statemethods {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

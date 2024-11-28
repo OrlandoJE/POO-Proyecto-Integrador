@@ -256,4 +256,8 @@ public class Playing extends State implements Statemethods {
 		return enemyManager;
 	}
 
+	public Playing getPlaying() {
+		return this;
+	}
+
 }

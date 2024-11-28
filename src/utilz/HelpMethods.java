@@ -38,6 +38,15 @@ public class HelpMethods {
 		int value = lvlData[yTile][xTile];
 
 		if (value >= 48 || value < 0 || value != 11)
+			if (value != 200)
+				return true;
+		return false;
+	}
+
+	public static boolean didWin(float xTile, float yTile, int[][] lvlData) {
+		int value = lvlData[(int)yTile / Game.TILES_SIZE][(int)xTile / Game.TILES_SIZE];
+
+		if (value == 200)
 			return true;
 		return false;
 	}
@@ -91,7 +100,8 @@ public class HelpMethods {
 		return true;
 	}
 
-	public static boolean IsSightClear(int[][] lvlData, Rectangle2D.Float firstHitbox, Rectangle2D.Float secondHitbox, int yTile) {
+	public static boolean IsSightClear(int[][] lvlData, Rectangle2D.Float firstHitbox, Rectangle2D.Float secondHitbox,
+			int yTile) {
 		int firstXTile = (int) (firstHitbox.x / Game.TILES_SIZE);
 		int secondXTile = (int) (secondHitbox.x / Game.TILES_SIZE);
 
@@ -109,6 +119,8 @@ public class HelpMethods {
 				int value = color.getRed();
 				if (value >= 48)
 					value = 0;
+				if (color.getBlue() == 200)
+					value = 200;
 				lvlData[j][i] = value;
 			}
 		return lvlData;
@@ -137,4 +149,13 @@ public class HelpMethods {
 		return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
 	}
 
+	// public static boolean arrivedToFinish(Rectangle2D.Float hitbox, int[][] lvlData) {
+	// 	int currentTileX = (int) (hitbox.x / Game.TILES_SIZE);
+	// 	int currentTileY = (int) (hitbox.y / Game.TILES_SIZE);
+
+	// 	Color color = new Color(lvlData[currentTileY][currentTileX]);
+	// 	int blueValue = color.getBlue();
+
+	// 	return blueValue == 200;
+	// }
 }

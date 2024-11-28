@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import entities.Crab;
 import main.Game;
+import main.MainClass;
+
 import static utilz.HelpMethods.GetLevelData;
 import static utilz.HelpMethods.GetCrabs;
 import static utilz.HelpMethods.GetPlayerSpawn;
@@ -39,7 +41,8 @@ public class Level {
 	}
 
 	private void createEnemies() {
-		crabs = GetCrabs(img);
+		if (MainClass.areThereEnemies)
+			crabs = GetCrabs(img);
 	}
 
 	private void createLevelData() {
