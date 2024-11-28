@@ -93,7 +93,7 @@ public abstract class Enemy extends Entity {
 	protected void newState(int enemyState) {
 		this.state = enemyState;
 		aniTick = 0;
-		aniIndex = 0;
+		animationIndex = 0;
 	}
 
 	public void hurt(int amount) {
@@ -115,13 +115,13 @@ public abstract class Enemy extends Entity {
 		aniTick++;
 		if (aniTick >= ANI_SPEED) {
 			aniTick = 0;
-			aniIndex++;
-			if (aniIndex >= GetSpriteAmount(enemyType, state)) {
-				aniIndex = 0;
+			animationIndex++;
+			if (animationIndex >= GetSpriteAmount(enemyType, state)) {
+				animationIndex = 0;
 
 				switch (state) {
-				case ATTACK, HIT -> state = IDLE;
-				case DEAD -> active = false;
+					case ATTACK, HIT -> state = IDLE;
+					case DEAD -> active = false;
 				}
 			}
 		}
@@ -143,7 +143,6 @@ public abstract class Enemy extends Entity {
 		active = true;
 		airSpeed = 0;
 	}
-
 
 	public boolean isActive() {
 		return active;

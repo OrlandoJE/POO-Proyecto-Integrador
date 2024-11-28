@@ -11,7 +11,7 @@ public abstract class Entity {
 	protected float x, y;
 	protected int width, height;
 	protected Rectangle2D.Float hitbox;
-	protected int aniTick, aniIndex;
+	protected int aniTick, animationIndex;
 	protected int state;
 	protected float airSpeed;
 	protected boolean inAir = false;
@@ -50,8 +50,8 @@ public abstract class Entity {
 		return state;
 	}
 
-	public int getAniIndex() {
-		return aniIndex;
+	public int getAnimationIndex() {
+		return animationIndex;
 	}
 
 }

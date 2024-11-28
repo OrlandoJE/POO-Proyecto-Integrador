@@ -1,6 +1,7 @@
 package utilz;
 
 import main.Game;
+import main.MainClass;
 
 public class Constants {
 
@@ -50,7 +51,7 @@ public class Constants {
 		public static int GetMaxHealth(int enemy_type) {
 			switch (enemy_type) {
 			case CRABBY:
-				return 10;
+				return 100;
 			default:
 				return 1;
 			}
@@ -59,7 +60,7 @@ public class Constants {
 		public static int GetEnemyDmg(int enemy_type) {
 			switch (enemy_type) {
 			case CRABBY:
-				return 15;
+				return MainClass.enemyDamage;
 			default:
 				return 0;
 			}

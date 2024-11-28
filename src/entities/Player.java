@@ -12,10 +12,11 @@ import java.awt.image.BufferedImage;
 
 import gamestates.Playing;
 import main.Game;
+import main.MainClass;
 import utilz.LoadSave;
 
 public class Player extends Entity {
-	
+
 	private BufferedImage[][] animations;
 	private boolean moving = false, attacking = false;
 	private boolean left, right, jump;
@@ -24,7 +25,7 @@ public class Player extends Entity {
 	private float yDrawOffset = 4 * Game.SCALE;
 
 	// Jumping / Gravity
-	private float jumpSpeed = -2.25f * Game.SCALE;
+	private float jumpSpeed = -(float) MainClass.jumpHeight * Game.SCALE;
 	private float fallSpeedAfterCollision = 0.5f * Game.SCALE;
 
 	// StatusBarUI
@@ -88,7 +89,7 @@ public class Player extends Entity {
 	}
 
 	private void checkAttack() {
-		if (attackChecked || aniIndex != 1)
+		if (attackChecked || animationIndex != 1)
 			return;
 		attackChecked = true;
 		playing.checkEnemyHit(attackBox);
@@ -109,9 +110,8 @@ public class Player extends Entity {
 	}
 
 	public void render(Graphics g, int lvlOffset) {
-		g.drawImage(animations[state][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX, (int) (hitbox.y - yDrawOffset), width * flipW, height, null);
-//		drawHitbox(g, lvlOffset);
-//		drawAttackBox(g, lvlOffset);
+		g.drawImage(animations[state][animationIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX,
+				(int) (hitbox.y - yDrawOffset), width * flipW, height, null);
 		drawUI(g);
 	}
 
@@ -125,9 +125,9 @@ public class Player extends Entity {
 		aniTick++;
 		if (aniTick >= ANI_SPEED) {
 			aniTick = 0;
-			aniIndex++;
-			if (aniIndex >= GetSpriteAmount(state)) {
-				aniIndex = 0;
+			animationIndex++;
+			if (animationIndex >= GetSpriteAmount(state)) {
+				animationIndex = 0;
 				attacking = false;
 				attackChecked = false;
 			}
@@ -154,7 +154,7 @@ public class Player extends Entity {
 		if (attacking) {
 			state = ATTACK;
 			if (startAni != ATTACK) {
-				aniIndex = 1;
+				animationIndex = 1;
 				aniTick = 0;
 				return;
 			}
@@ -165,7 +165,7 @@ public class Player extends Entity {
 
 	private void resetAniTick() {
 		aniTick = 0;
-		aniIndex = 0;
+		animationIndex = 0;
 	}
 
 	private void updatePos() {
