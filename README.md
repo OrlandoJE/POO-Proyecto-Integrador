@@ -31,4 +31,4 @@ To add custom levels, you can create a new text file in the levels folder. The f
 - If not followed, modify the `GetLevelData` in the `HelpMethods` class to adjust to the new assets.
 - For the levels, it is recommended to use the same height as the ones in the `res` folder, width can vary.
 
-> This is a modified version of the _Java Game Development Tutorial Platformer_ by **Kaarin Gaming**. This is for educational porpuses and non-commercial.
+> This is a modified version of the _Java Game Development Tutorial Platformer_ by **Kaarin Gaming**. This is for educational purposes and non-commercial.

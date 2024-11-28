@@ -3,7 +3,7 @@ package main;
 public class MainClass {
 	// Modify variables to set the desired mechanics and behavior of the game
 	public static int framesPerSecond = 144; // Normally 60 or 144
-	public static double gameWindowScale = 2; // Normally between 1 or 2
+	public static double gameWindowScale = 1; // Normally between 1 or 2
 	public static int numberOfLevels = 3; // How many levels are going to be in your game?
 	public static double gravity = 0.04; // Normally between 0.04 and 0.08
 
